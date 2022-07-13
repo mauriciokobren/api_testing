@@ -3,13 +3,12 @@ import definitions
 import logging
 
 class  TestGithubReposAPI:
-    EXPECTED_NUMBER_OF_REPOS = 1
+    EXPECTED_NUMBER_OF_REPOS = 2
     EXPECTED_REPO_NAME = 'api_testing'
-    EXPECTED_ELEMENTS = ['name','description','html_url','abc']
+    EXPECTED_ELEMENTS = ['name','description','html_url']
 
     def setup_method(self, test_method):
-        self.response = requests.get(definitions.repo_end_point,headers=definitions.github_headers,
-         data = definitions.github_payload)
+        self.response = requests.get(definitions.repo_end_point)
 
     def test_status_is_200(self):
         LOGGER = logging.getLogger(__name__)
